@@ -18,6 +18,9 @@ public class MainClass
         detectCycle.BuildGraph(arr1);
         System.out.println("Cycle is "+detectCycle.detectCycle());
 
+        BipartiteGraph bipartiteGraph = new BipartiteGraph();
+        System.out.println("Graph is Bipartite - "+bipartiteGraph.bipartiteGraph(arr1,0));
+
 
 
 

@@ -26,6 +26,7 @@ public class BipartiteGraph
                 if (!visited[k])
                 {
                     queue.offer(k);
+                    visited[k] = true;
                     level[k] = level[v]+1;
                 }
                 else if (level[k]==level[v])
