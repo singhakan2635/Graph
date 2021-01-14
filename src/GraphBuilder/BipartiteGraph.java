@@ -37,4 +37,76 @@ public class BipartiteGraph
 
 
     }
+
+    public boolean biPartiteGraph2(int[][] graph)
+    {
+        boolean[] visited = new boolean[graph.length];
+        Arrays.fill(visited,false);
+        int[] level = new int[graph.length];
+
+        for (int i=0;i< graph.length;i++)
+        {
+            if (graph[i].length!=0 && !visited[i])
+            {
+                visited[i] = true;
+                Queue<Integer> queue = new LinkedList<>();
+                queue.offer(i);
+                level[i] = 1;
+                while (!queue.isEmpty())
+                {
+                    int k = queue.poll();
+                    for (int n: graph[k])
+                    {
+                        if (!visited[n])
+                        {
+                            visited[n] =true;
+                            queue.offer(n);
+                            level[n] = level[k]+1;
+                        }
+                        else if (level[n]==level[k])
+                            return false;
+                    }
+                }
+
+            }
+        }
+        return true;
+
+
+    }
+
+    private boolean bipartiteOriginal(int[][] graph)
+    {
+        boolean[] visited = new boolean[graph.length];
+        Arrays.fill(visited,false);
+        int[] level = new int[graph.length];
+
+        for (int i=0;i< graph.length;i++)
+        {
+            if (graph[i].length!=0 && !visited[i])
+            {
+                visited[i] = true;
+                Queue<Integer> queue = new LinkedList<>();
+                queue.offer(i);
+                level[i] = 1;
+                while (!queue.isEmpty())
+                {
+                    int k = queue.poll();
+                    for (int n: graph[k])
+                    {
+                        if (!visited[n])
+                        {
+                            visited[n] =true;
+                            queue.offer(n);
+                            level[n] = level[k]+1;
+                        }
+                        else if (level[n]==level[k])
+                            return false;
+                    }
+                }
+
+            }
+        }
+        return true;
+    }
 }
