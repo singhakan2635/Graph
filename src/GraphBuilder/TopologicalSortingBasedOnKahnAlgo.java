@@ -10,12 +10,12 @@ public class TopologicalSortingBasedOnKahnAlgo
         CreateGraph2 graph = new CreateGraph2();
         map = graph.buildGraph(arr);
         graph.printGraph(map);
-        int n = map.size();
+        int n = graph.getSize();
         //int n = 6;
         int[] inorder = new int[n];
-        for (int i=0;i<n;i++)
+        for (Map.Entry<Integer,List<Integer>> entry: map.entrySet())
         {
-            List<Integer> temp = map.get(i);
+            List<Integer> temp = entry.getValue();
             for (int node:temp)
             {
                 inorder[node]++;
@@ -35,13 +35,17 @@ public class TopologicalSortingBasedOnKahnAlgo
             int vertex = queue.poll();
             L.add(vertex);
             System.out.println("vertx is "+vertex);
-            for (int node: map.get(vertex))
+            if (map.containsKey(vertex))
             {
-                if (--inorder[node]==0)
+                for (int node: map.get(vertex))
                 {
-                    queue.offer(node);
+                    if (--inorder[node]==0)
+                    {
+                        queue.offer(node);
+                    }
                 }
             }
+
         }
         System.out.println("L is "+L);
         if (L.size()!=n)

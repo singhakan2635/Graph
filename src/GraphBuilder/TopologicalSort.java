@@ -23,7 +23,11 @@ public class TopologicalSort
         departure = new int[n];
         dfsOrder = new int[n];
         visited = new boolean[n];
-        dfs(0);
+        for (int i=0;i<n;i++)
+        {
+            if (!visited[i])
+                dfs(0);
+        }
         System.out.println("DFS - "+ Arrays.toString(dfsOrder));
         System.out.println("Arrival - "+Arrays.toString(arrival));
         System.out.println("Departure - "+Arrays.toString(departure));

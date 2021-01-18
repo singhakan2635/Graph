@@ -4,11 +4,15 @@ import java.util.*;
 
 public class CreateGraph2
 {
+    HashSet<Integer> set = new HashSet<>();
     public HashMap buildGraph(int[][] arr)
     {
         HashMap<Integer, List<Integer>> map =new LinkedHashMap<>();
+
         for (int i=0;i<arr.length;i++)
         {
+            set.add(arr[i][0]);
+            set.add(arr[i][1]);
             if (!map.containsKey(arr[i][0]))
             {
                 map.put(arr[i][0],new LinkedList<>());
@@ -24,6 +28,10 @@ public class CreateGraph2
             //map.get(arr[i][1]).add(arr[i][0]);
         }
         return map;
+    }
+    public int getSize()
+    {
+        return set.size();
     }
     public void printGraph(HashMap<Integer,List<Integer>> map)
     {
