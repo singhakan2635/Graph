@@ -9,6 +9,8 @@ public class MainClass
         int[][] arr1 = new int[][]{{0,1},{0,2},{0,3},{1,4},{1,5},{2,6},{2,7},{3,8}};
 
         int[][] arr2 = new int[][]{{5,2},{5,0},{4,0},{4,1},{2,3},{3,1}};
+
+        int[][] arr3 = new int[][]{{0,6},{0,1},{1,6},{1,5},{1,2},{2,3},{3,4},{5,2},{5,3},{5,4},{6,5},{7,6},{7,1}};
         GraphTraversal dfs = new GraphTraversal();
         dfs.BuildGraph(arr);
 
@@ -30,6 +32,9 @@ public class MainClass
         TopologicalSortingBasedOnKahnAlgo kahnAlgo =new TopologicalSortingBasedOnKahnAlgo();
         System.out.println("Topological Sorting USing Kahn's Algo - ");
         kahnAlgo.topologicalSort(arr2);
+
+        TotalNumberOfPathsFromSourceToDestination sourceToDestination = new TotalNumberOfPathsFromSourceToDestination();
+        System.out.print("Total numbers of paths - "+ sourceToDestination.TotalNumberOFPaths(0,3,4,arr3));
 
 
     }

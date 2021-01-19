@@ -21,7 +21,7 @@ public class TopologicalSortingBasedOnKahnAlgo
                 inorder[node]++;
             }
         }
-        System.out.println("Inorder "+Arrays.toString(inorder));
+        //System.out.println("Inorder "+Arrays.toString(inorder));
 
         Queue<Integer> queue = new LinkedList<>();
         for (int i=0;i<n;i++)
@@ -34,7 +34,7 @@ public class TopologicalSortingBasedOnKahnAlgo
         {
             int vertex = queue.poll();
             L.add(vertex);
-            System.out.println("vertx is "+vertex);
+            //System.out.println("vertx is "+vertex);
             if (map.containsKey(vertex))
             {
                 for (int node: map.get(vertex))
@@ -47,7 +47,7 @@ public class TopologicalSortingBasedOnKahnAlgo
             }
 
         }
-        System.out.println("L is "+L);
+        //System.out.println("L is "+L);
         if (L.size()!=n)
         {
             System.out.println("There is a cycle");
@@ -56,6 +56,7 @@ public class TopologicalSortingBasedOnKahnAlgo
         {
             System.out.print(i+" ");
         }
+        System.out.println();
 
     }
 }
