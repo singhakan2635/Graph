@@ -1,5 +1,11 @@
 package GraphBuilder;
 
+import LeetCodeQuestions.AllThePathFromSourceTotarget;
+import LeetCodeQuestions.ReconstructItinery;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainClass
 {
     public static void main(String[] args)
@@ -11,6 +17,29 @@ public class MainClass
         int[][] arr2 = new int[][]{{5,2},{5,0},{4,0},{4,1},{2,3},{3,1}};
 
         int[][] arr3 = new int[][]{{0,6},{0,1},{1,6},{1,5},{1,2},{2,3},{3,4},{5,2},{5,3},{5,4},{6,5},{7,6},{7,1}};
+        int[][] arr4 = new int[][]{{1,2},{3},{3},{}};
+
+        List<List<String>> itinery =new ArrayList<>();
+        List<String> op = new ArrayList<>();
+        op.add("JFK");
+        op.add("SFO");
+        itinery.add(op);
+        List<String> op1 = new ArrayList<>();
+        op1.add("JFK");
+        op1.add("ATL");
+        itinery.add(op1);
+        List<String> op2 = new ArrayList<>();
+        op2.add("SFO");
+        op2.add("ATL");
+        itinery.add(op2);
+        List<String> op3 = new ArrayList<>();
+        op3.add("ATL");
+        op3.add("JFK");
+        itinery.add(op3);
+        List<String> op4 = new ArrayList<>();
+        op4.add("ATL");
+        op4.add("SFO");
+        itinery.add(op4);
         GraphTraversal dfs = new GraphTraversal();
         dfs.BuildGraph(arr);
 
@@ -34,8 +63,13 @@ public class MainClass
         kahnAlgo.topologicalSort(arr2);
 
         TotalNumberOfPathsFromSourceToDestination sourceToDestination = new TotalNumberOfPathsFromSourceToDestination();
-        System.out.print("Total numbers of paths - "+ sourceToDestination.TotalNumberOFPaths(0,3,4,arr3));
+        System.out.println("Total numbers of paths - "+ sourceToDestination.TotalNumberOFPaths(0,3,4,arr3));
 
+        AllThePathFromSourceTotarget allpath = new AllThePathFromSourceTotarget();
+        System.out.println(allpath.allPathsSourceTarget(arr4));
 
+        System.out.println(itinery);
+        ReconstructItinery reconstructItinery = new ReconstructItinery();
+        System.out.println(reconstructItinery.findItinerary(itinery));
     }
 }
