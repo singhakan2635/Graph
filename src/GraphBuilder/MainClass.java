@@ -19,6 +19,8 @@ public class MainClass
         int[][] arr3 = new int[][]{{0,6},{0,1},{1,6},{1,5},{1,2},{2,3},{3,4},{5,2},{5,3},{5,4},{6,5},{7,6},{7,1}};
         int[][] arr4 = new int[][]{{1,2},{3},{3},{}};
 
+        int[][] arr5 = new int[][]{{0,1},{1,2},{2,3},{3,0},{2,4},{4,5},{5,6},{6,4},{7,6},{7,8}};
+
         List<List<String>> itinery =new ArrayList<>();
         List<String> op = new ArrayList<>();
         op.add("JFK");
@@ -71,5 +73,9 @@ public class MainClass
         System.out.println(itinery);
         ReconstructItinery reconstructItinery = new ReconstructItinery();
         System.out.println(reconstructItinery.findItinerary(itinery));
+
+        System.out.println("Strongly Connected Graph - Kosarajan's Algorithms");
+        StronglyConnectedComponentKosarajusAlgo algo =new StronglyConnectedComponentKosarajusAlgo();
+        algo.KosarajusAlgo(arr5);
     }
 }
