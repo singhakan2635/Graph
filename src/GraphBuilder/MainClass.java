@@ -77,5 +77,9 @@ public class MainClass
         System.out.println("Strongly Connected Graph - Kosarajan's Algorithms");
         StronglyConnectedComponentKosarajusAlgo algo =new StronglyConnectedComponentKosarajusAlgo();
         algo.KosarajusAlgo(arr5);
+
+        System.out.println("Strongly Connected Grapg - Tarjan's Algorithm");
+        TarjanAlgorithm tarjanAlgorithm = new TarjanAlgorithm();
+        tarjanAlgorithm.StronglyConnectedComponent(arr5);
     }
 }

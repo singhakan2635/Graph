@@ -45,7 +45,6 @@ public class AllThePathFromSourceTotarget
             result.add(new ArrayList<>(path));
             return;
         }
-
         for (int each : graph[node])
         {
             path.add(each);
